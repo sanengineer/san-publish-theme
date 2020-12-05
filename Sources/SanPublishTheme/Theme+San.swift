@@ -4,11 +4,8 @@
 //
 //  Created by San Engineer on 05/12/20.
 //
-import Publish
-import Plot
-
 public extension Theme {
-    /// My customized "San" theme.
+
     static var san: Self {
         Theme(
             htmlFactory: SanHTMLFactory(),
@@ -91,7 +88,9 @@ private struct SanHTMLFactory<Site: Website>: HTMLFactory {
             .head(for: page, on: context.site),
             .body(
                 .header(for: context, selectedSection: nil),
-                .wrapper(.contentBody(page.body)),
+                .wrapper(
+
+                ),
                 .footer(for: context.site)
             )
         )
@@ -173,11 +172,13 @@ private extension Node where Context == HTML.BodyContext {
                 .if(sectionIDs.count > 1,
                     .nav(
                         .ul(.forEach(sectionIDs) { section in
-                            .li(.a(
-                                .class(section == selectedSection ? "selected" : ""),
-                                .href(context.sections[section].path),
-                                .text(context.sections[section].title)
-                            ))
+                            .li(
+                                .a(
+                                    .class(section == selectedSection ? "selected" : ""),
+                                    .href(context.sections[section].path),
+                                    .text(context.sections[section].title)
+                                )
+                            )
                         })
                     )
                 )
@@ -213,16 +214,30 @@ private extension Node where Context == HTML.BodyContext {
     static func footer<T: Website>(for site: T) -> Node {
         return .footer(
             .p(
-                .text("Generated using "),
+                .text("Generated with ❤️ using "),
                 .a(
                     .text("Publish"),
                     .href("https://github.com/johnsundell/publish")
                 )
             ),
-            .p(.a(
-                .text("RSS feed"),
-                .href("/feed.rss")
-            ))
+            .p(
+                .a(
+                    .text("RSS feed"),
+                    .href("/feed.rss")
+                ),
+                .text(" | "),
+                .a(
+                    .text("Twitter"),
+                    .href("https://twitter.com"),
+                    .target(.blank)
+                ),
+                .text(" | "),
+                .a(
+                    .text("GitHub"),
+                    .href("https://github.com/sanengineer"),
+                    .target(.blank)
+                )
+            )
         )
     }
 }
