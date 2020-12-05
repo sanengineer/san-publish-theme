@@ -4,20 +4,9 @@
 //
 //  Created by San Engineer on 05/12/20.
 //
+import Foundation
 import Publish
 import Plot
-
-//public extension Theme {
-//    /// The default "Foundation" theme that Publish ships with, a very
-//    /// basic theme mostly implemented for demonstration purposes.
-//    static var foundation: Self {
-//        Theme(
-//            htmlFactory: SanHTMLFactory(),
-//            resourcePaths: ["Resources/FoundationTheme/styles.css"]
-//        )
-//    }
-//}
-
 
 public extension Theme {
     /// My customized "San" theme.
