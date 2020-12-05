@@ -4,8 +4,7 @@
 //
 //  Created by San Engineer on 05/12/20.
 //
-import Foundation
-import Publish
+
 import Plot
 
 public extension Theme {
